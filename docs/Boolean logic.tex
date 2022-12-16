@@ -1,0 +1,213 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+%
+%\\usepackage{setspace}
+\usepackage{textcomp}
+\usepackage{gensymb}
+\usepackage{xcolor}
+\usepackage{caption}
+%\usepackage{subcaption}
+%\doublespacing
+\singlespacing
+
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=black]{hyperref}
+%\usepackage[parfill]{parskip}
+%\usepackage{amssymb}
+%\usepackage{relsize}
+\usepackage[cmex10]{amsmath}
+\usepackage{mathtools}
+%\usepackage{amsthm}
+%\interdisplaylinepenalty=2500
+%\savesymbol{iint}
+%\usepackage{txfonts}
+%\restoresymbol{TXF}{iint}
+%\usepackage{wasysym}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{cite}
+\usepackage{cases}
+\usepackage{subfig}
+%\usepackage{xtab}
+\usepackage{hyperref}
+\usepackage{longtable}
+\usepackage{multirow}
+%\usepackage{algorithm}
+%\usepackage{algpseudocode}
+\usepackage{enumitem}
+\usepackage{mathtools}
+%\usepackage{eenrc}
+%\usepackage[framemethod=tikz]{mdframed}
+%\usepackage{hyperref}
+\usepackage{listings}
+    \usepackage[latin1]{inputenc}                                 %%
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+  %optionally (for landscape tables embedded in another document): %%
+    \usepackage{lscape}     
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{karnaugh-map}
+\usepackage{pgf}
+
+\usepackage{url}
+\def\UrlBreaks{\do\/\do-}
+
+
+
+%\usepackage{stmaryrd}
+
+
+%\usepackage{wasysym}
+%\newcounter{MYtempeqncnt}
+\DeclareMathOperator*{\Res}{Res}
+%\renewcommand{\baselinestretch}{2}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+
+
+
+%\surroundwithmdframed[width=\columnwidth]{lstlisting}
+\def\inputGnumericTable{}                                 %%
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+ 
+
+\begin{document}
+%
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+%\newtheorem{algorithm}{Algorithm}[section]
+%\newtheorem{cor}{Corollary}
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+\vspace{2cm}
+\title{ 
+Logical Expression through AVR-GCC
+}
+
+\author{Md. Naveed Ahmed}
+
+
+\maketitle
+\tableofcontents
+\bigskip
+%
+%\newpage
+\section{Abstract}
+
+In the ciruit A,B,C and D are digital inputs, Y is digital output.The equivalent circuit shows the logical expression Y=AB+CD.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.8]{ide/figures/log_exp.png}
+    \\
+    \\
+    \caption{Y=AB+CD}
+    \\
+    Solve the boolean circuit by Using Demorgan's law \\
+    (i)  \overline{AB} = \overline{A}+\overline{B}\\
+    (ii)  \overline{A+B} = \overline{A}\overline{B}\\  
+    %\caption{Circuit}
+    \label{fig:circuit}
+\end{figure}
+\section{\textbf{Components}}
+\input{components}
+\begin{table}[!h]
+\centering
+\caption{}
+\label{table:7447_disp}
+\end{table}
+\begin{figure}
+The figure given below is the pin diagram of Seven Segment Display\\
+    \centering
+    \includegraphics{ide/figures/seven.png}
+    \caption{Seven segment display}
+    \label{fig:my_label}
+\end{figure}
+\begin{figure}
+The table given below is the connections between 7447 BCD Decoder and Seven Segment Display\\
+    \centering
+    \includegraphics[scale=0.5]{ide/figures/sevenseg.png}
+    \caption{}
+    \label{fig:my_label}
+\end{figure}
+\begin{figure}
+The diagram below shows the pin diagram of 7447 BCD Decoder.The output pins of 7447 is connected to Seven Segment Display using fig 3.
+    \centering
+    \includegraphics[scale=0.5]{ide/figures/ic7447.png}
+    \caption{}
+    \label{fig:my_label}
+\end{figure}
+
+\section{Procedure}
+\subsection{LED Blinking}
+1. Connect Arduino ground to the led - resistor end\\
+2. Connect Arduino 13 pin to the LED Positive\\
+3. Execute the following code\\
+4. Observe the results as per below table by changing input values\\
+\begin{table}[!h]
+\begin{tabular}{|c|c|c|c|c|}
+\centering
+A & B & C & D & Y \\ 
+\hline 
+0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 1 & 0\\
+0 & 0 & 1 & 0 & 0\\
+0 & 0 & 1 & 1 & 1\\
+0 & 1 & 0 & 0 & 0\\
+0 & 1 & 0 & 1 & 0\\
+0 & 1 & 1 & 0 & 0\\
+0 & 1 & 1 & 1 & 1\\
+1 & 0 & 0 & 0 & 0\\
+1 & 0 & 0 & 1 & 0\\
+1 & 0 & 1 & 0 & 0\\
+1 & 0 & 1 & 1 & 1\\
+1 & 1 & 0 & 0 & 1\\
+1 & 1 & 0 & 1 & 1\\
+1 & 1 & 1 & 0 & 1\\
+1 & 1 & 1 & 1 & 1\\
+\end{tabular}
+\end{table}
+\subsection{Testing on Seven Segment Display using 7447}
+1. connect the circuit using 7447 BCD-Seven segment display decoder and Arduino\\
+2.  connect the seven segment pins to 7447 using fig 3.\\
+3.  Make the connections according to TABLE II \\
+\input{ide/docs/connections.tex}
+\begin{table}[!h]
+\centering
+\caption{}
+\label{table:7447_disp}
+\end{table}
+4. connect the output pins of 7447 to Ground(Gnd)\\
+5. Verify the Boolean operation in Arduino using the following code and making
+pin connections according to fig 2,3.
+
+\textbf{Observe the circuit and verify the program by executing the link provided below.}\\
+\begin{center}
+\fbox{\parbox{8.5cm}{\url{https://github.com/naveed790/FWC/}}}
+\end{center}
+\end{document}
