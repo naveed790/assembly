@@ -107,7 +107,7 @@ columns=fullflexible
 \newcommand{\define}{\stackrel{\triangle}{=}}
 \vspace{2cm}
 \title{ 
-Logical Expression through IDE
+Logical Expression through assembly
 }
 
 \author{Md. Naveed Ahmed}
@@ -118,14 +118,22 @@ Logical Expression through IDE
 \bigskip
 %
 %\newpage
-\section{Abstract}
+\section{Problem Statement}
 
-In the ciruit A,B,C and D are digital inputs, Y is digital output.The equivalent circuit shows the logical expression Y=AB+CD.
+
+
+\textbf{Question-14}  : In the logic circuit shown in the figure, Y is given by
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.8]{../figures/log_exp.png}\\
-    \caption{Y=AB+CD}
 \end{figure}\\
+\begin{enumerate}[label=(\alph*)]
+    \item Y = ABCD
+    \item Y = (A + B) (C + D)
+    \item Y = A + B + C + D
+    \item Y = AB + CD
+\end{enumerate}
+
 \section{\textbf{Components}}
 \input{components}
 \begin{table}[!h]
@@ -157,31 +165,7 @@ In the ciruit A,B,C and D are digital inputs, Y is digital output.The equivalent
     \begin{align*}
     Y  = AB + CD
     \end{align*}
-    \label{fig:circuit}
-\begin{itemize}
-    \item The figure given below is the pin diagram of Seven Segment Display
-    \begin{figure}[h]
-    \centering
-    \includegraphics{../figures/seven.png}
-    \caption{Seven segment display}
-    \label{fig:my_label}
-    \end{figure}
-   \item  The table(Fig. 3) given abvoe is the connections between 7447 BCD Decoder and Seven Segment Display
-   \begin{figure}
-       \centering
-       \includegraphics[scale=0.5]{../figures/sevenseg.png}
-       \caption{}
-       \label{fig:my_label}
-   \end{figure}
 
-    \item The diagram below shows the pin diagram of 7447 BCD Decoder.The output pins of 7447 is connected to Seven Segment Display using fig 3.
-    \begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.5]{../figures/ic7447.png}
-    \caption{}
-    \label{fig:my_label}
-    \end{figure}
-\end{itemize}
 \subsection{Truth table for Boolean Logic}
 \begin{table}[!h]
 \begin{tabular}{|c|c|c|c|c|}
@@ -213,30 +197,40 @@ A & B & C & D & Y \\
 
 \end{table}
 
+\pagebreak
+\section{\textbf{Connections}}
+\begin{table}[!h]
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\centering
+Input & A & B & C & D & \\ 
+\hline 
+Output &  &  &  &  & Y\\
+\hline
+Arduino & 2 & 3 & 4 & 5 & 8\\
+
+
+\hline
+\end{tabular}
+\centering 
+\label{}
+\caption{}
+
+\end{table}
 
 \section{Procedure}
+
 \subsection{LED Blinking}
 \begin{enumerate}
-\item 1 Connect Arduino ground to the led - resistor end
+\item Make connections as per TABLE-III
+\item Connect Arduino ground to the led - resistor end
 \item Connect Arduino 13 pin to the LED Positive
+\item In arduino we are having pins A,B,C,D.here we are using port B pin 13 is taken as output pin.
+\item port D pins 2,3,4,5 pins are taken as a inputs. portD pins 2,3,4,5 pins are connected vcc or gnd in breadboard as per truth table
 \item Execute the following code
-\item Observe the results as per below TABLE III by changing input values
+\item Observe the results as per below TABLE II by changing input values
 \end{enumerate}
-\subsection{Testing on Seven Segment Display using 7447}
-\begin{enumerate}
-\item connect the circuit using 7447 BCD-Seven segment display decoder and Arduino
-\item  connect the seven segment pins to 7447 using fig 3.
-\item  Make the connections according to TABLE II \\
-\input{../docs/connections.tex}
-\begin{table}[!h]
-\centering
-\caption{}
-\label{table:7447_disp}
-\end{table}
-\item connect the output pins of 7447 to Ground(Gnd)
-\item Verify the Boolean operation in Arduino using the following code and making
-pin connections according to fig 2,3.
-\end{enumerate}
+
 
 \textbf{Observe the circuit and verify the program by executing the link provided below.}\\
 \begin{center}
